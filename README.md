@@ -2,6 +2,8 @@
 
 A [Chocolatey package](https://chocolatey.org) for [k9s](https://k9scli.io/).
 
+Note: This is not the official package definition.  I made this just to learn how to create a Chocolatey package.
+
 ## Contributing
 
 1. Make changes to [k9s.nuspec](./k9s.nuspec).
