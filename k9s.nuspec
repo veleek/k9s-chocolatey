@@ -19,8 +19,8 @@
     <!-- <copyright>Year Software Vendor</copyright> -->
     <licenseUrl>https://github.com/derailed/k9s/blob/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <projectSourceUrl>Software Source Location - is the software FOSS somewhere? Link to it with this</projectSourceUrl>
-    <docsUrl>https://github.com/derailed/k9s</docsUrl>
+    <projectSourceUrl>https://github.com/derailed/k9s</projectSourceUrl>
+    <docsUrl>https://k9scli.io/</docsUrl>
     <bugTrackerUrl>https://github.com/derailed/k9s/issues</bugTrackerUrl>
     <tags>k9s k8s kubectl</tags>
     <summary>K9s - Kubernetes CLI To Manage Your Clusters In Style!</summary>
