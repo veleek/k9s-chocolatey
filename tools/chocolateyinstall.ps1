@@ -5,31 +5,23 @@
 $ErrorActionPreference = 'Stop'; # stop on all errors
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $url64    = 'https://github.com/derailed/k9s/releases/download/v0.20.2/k9s_Windows_x86_64.tar.gz'
-$tarGzipName = (Split-Path -Leaf $url64)
-$tarGzipPath = Join-Path $toolsDir $tarGzipName
 $tarName  = [System.IO.Path]::GetFileNameWithoutExtension((Split-Path -Leaf $url64))
 $tarPath  = Join-Path $toolsDir $tarName
 
 $getFileArgs = @{
   packageName    = $env:ChocolateyPackageName
-  fileFullPath64 = $tarGzipPath
+  unzipLocation  = $toolsDir
   url64bit       = $url64
   checksum64     = '485ef75ccf8c4e5bac5f4595590816b9d3fc60cfb90fbf37c38a1847e28145ce'
   checksumType64 = 'sha256'
 }
 
-$unGzipArgs = @{
-  packageName    = $env:ChocolateyPackageName
-  fileFullPath64 = $tarGzipPath
-  destination    = $toolsDir
-}
-
 $unTarArgs = @{
   packageName    = $env:ChocolateyPackageName
-  fullFilePath   = $tarGzipPath
+  fileFullPath64 = $tarPath
   destination    = $toolsDir
 }
 
-Get-ChocolateyWebFile @getFileArgs
-Get-ChocolateyUnzip @unGzipArgs
+Install-ChocolateyZipPackage @getFileArgs
 Get-ChocolateyUnzip @unTarArgs
+Remove-Item $tarPath
